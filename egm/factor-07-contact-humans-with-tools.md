@@ -35,3 +35,12 @@ Reviewer inputs: approval/HITL configuration, a trace containing a human decisio
 | F07.4 | Does a rejection change the agent's behaviour safely (no leak, no retry loop)? | reject test, bounded retry | tested | handled but untested | not handled |
 | F07.5 | Can the agent start a conversation with a human (event/cron-triggered), not only reply? | outer-loop trigger plus contact channel | yes | notifications only | no |
 | F07.6 | Can the same mechanism address another agent? | agent-to-agent request through the same intent/protocol | yes | separate mechanism | no |
+
+## From the talk
+
+Source: Dex Horthy's talk, [video](https://www.youtube.com/watch?v=8kMaTybvDUw); timestamps are from its caption track. Paraphrase, not a transcript.
+
+- [00:11:17](https://www.youtube.com/watch?v=8kMaTybvDUw&t=677s) Flagged as subtle: most builders avoid the choice made at the very first output token, tool call versus message to a human. Making "I am done", "I need clarification" or "I need a manager" a natural-language-shaped intent moves that decision onto the first token, in a form the model handles well ([00:11:43](https://www.youtube.com/watch?v=8kMaTybvDUw&t=703s)).
+- [00:11:55](https://www.youtube.com/watch?v=8kMaTybvDUw&t=715s) Enables outer-loop agents (agent-initiated work). He defers to a separate post on this.
+- [00:12:56](https://www.youtube.com/watch?v=8kMaTybvDUw&t=776s) Anecdote (see factor 10): the deploy bot proposes "deploy the front end", a human replies "back end first", and the natural-language reply becomes the next JSON step; approval then resumes the loop.
+- [00:16:25](https://www.youtube.com/watch?v=8kMaTybvDUw&t=985s) Talk-only: he mentions work on a protocol for agents to contact humans (caption reads "A2 protocol", possibly a caption error). Not evidence for a requirement here.

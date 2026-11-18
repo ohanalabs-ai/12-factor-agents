@@ -34,3 +34,11 @@ Reviewer inputs: the context-assembly code or the harness configuration, and one
 | F03.4 | Is sensitive data filtered before it reaches the model? | redaction step, deny-list, secret-name-only reads | enforced in code or gateway | by instruction only ("do not print secrets") | none |
 | F03.5 | Can a reviewer reconstruct the exact context of a given past turn? | stored events plus a render function, or full request logging | yes | partially (inputs but not final render) | no |
 | F03.6 | Is the format chosen for density/clarity (typed events, delimiters), not just inherited message lists? | custom event format or documented reason for the default | custom or justified default | default, undocumented | default, and traces show duplicated or bloated context |
+
+## From the talk
+
+Source: Dex Horthy's talk, [video](https://www.youtube.com/watch?v=8kMaTybvDUw); timestamps are from its caption track. Paraphrase, not a transcript.
+
+- [00:09:28](https://www.youtube.com/watch?v=8kMaTybvDUw&t=568s) Own how the context window is built: the standard messages format is one option, but you can fold the whole event history into a single user or system message and ask "what happens next"; the thread model and its serialisation are yours.
+- [00:10:12](https://www.youtube.com/watch?v=8kMaTybvDUw&t=612s) "Everything in making agents good is context engineering": prompt, memory, RAG and history are all just ways to get the right tokens in. Look at every token and optimise density and clarity.
+- [00:06:49](https://www.youtube.com/watch?v=8kMaTybvDUw&t=409s) Talk-only (evidence for F03 limits): long context can be accepted by the API, yet nobody disputes that limiting the tokens gives tighter, more reliable results.

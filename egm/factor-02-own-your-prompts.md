@@ -34,3 +34,11 @@ Reviewer inputs: the agent definition files, the runtime config, a rendered-prom
 | F02.3 | Do prompt changes go through review with a diff a human reads? | PR history touching the prompt files | yes | changes land without review for some agents | no history |
 | F02.4 | Is there at least one automated eval or fixture that exercises the prompt and can fail? | eval script, golden outputs, rubric file wired to CI or a documented command | wired and failing on regression | exists, manual only | none |
 | F02.5 | Are secrets, tokens and customer data kept out of prompt files? | scan prompt files for credentials; secret references instead of values | clean | references with plaintext examples | secrets found |
+
+## From the talk
+
+Source: Dex Horthy's talk, [video](https://www.youtube.com/watch?v=8kMaTybvDUw); timestamps are from its caption track. Paraphrase, not a transcript.
+
+- [00:08:36](https://www.youtube.com/watch?v=8kMaTybvDUw&t=516s) Abstractions that write a prompt for you are fine to start, but to get past a quality bar teams end up writing every token by hand ([00:08:58](https://www.youtube.com/watch?v=8kMaTybvDUw&t=538s)).
+- [00:09:05](https://www.youtube.com/watch?v=8kMaTybvDUw&t=545s) Reason given: an LLM is a pure function; the only lever on output quality (short of retraining) is the tokens going in, so every prompt choice should be a knob you can test and evaluate ([00:09:20](https://www.youtube.com/watch?v=8kMaTybvDUw&t=560s)).
+- Talk-only: stance is "I do not know what is best, so try everything", which supports F02.4 (evals) as the core of the factor rather than prompt style.

@@ -5,7 +5,7 @@ per the [EGM process](https://github.com/ohanalabs-ai/agentic-process/blob/main/
 
 ## Elephant
 
-**Requirement.** Build agents that own one narrow responsibility and take roughly 3-20 steps, composed by mostly deterministic software, instead of one
+**Requirement.** Build agents that own one narrow responsibility and take roughly 3-10 steps (up to about 20 at the outside, per the talk), composed by mostly deterministic software, instead of one
 monolith that tries everything.
 
 **Why.** Context grows with steps and models lose focus as it does. Narrow scope keeps context short, makes failures local and testable, and gives each
@@ -33,3 +33,13 @@ Reviewer inputs: agent definitions (instructions, tools), trace step counts.
 | F10.4 | Are read-only investigation and write/act roles separated? | separate agents or identities | separated | same agent, gated | mixed |
 | F10.5 | Does an orchestrator delegate rather than do everything inline? | delegation calls, sub-agent config | yes | orchestrator also executes | none |
 | F10.6 | Does each agent have its own eval or acceptance test? | per-agent eval | each | some | none |
+
+## From the talk
+
+Source: Dex Horthy's talk, [video](https://www.youtube.com/watch?v=8kMaTybvDUw); timestamps are from its caption track. Paraphrase, not a transcript.
+
+- [00:12:24](https://www.youtube.com/watch?v=8kMaTybvDUw&t=744s) What works in practice is the micro agent: a mostly deterministic DAG with small agent loops of about 3 to 10 steps ([00:12:35](https://www.youtube.com/watch?v=8kMaTybvDUw&t=755s)).
+- [00:12:39](https://www.youtube.com/watch?v=8kMaTybvDUw&t=759s) Anecdote: their deploy bot. The pipeline is deterministic CI/CD code until a PR is merged and tests pass on development; then a model is told "get this deployed", proposes front end, a human redirects to back end first, and control returns to deterministic code (end-to-end test against prod, or a rollback agent) ([00:13:13](https://www.youtube.com/watch?v=8kMaTybvDUw&t=793s)).
+- [00:13:30](https://www.youtube.com/watch?v=8kMaTybvDUw&t=810s) "100 tools, 20 steps, easy": manageable context and clear responsibilities.
+- [00:13:40](https://www.youtube.com/watch?v=8kMaTybvDUw&t=820s) If models improve, expect to start deterministic and sprinkle LLMs in until an agent runs the whole endpoint; still engineer for quality. NotebookLM's advice is quoted as: find something at the edge of what the model does reliably, then engineer reliability around it ([00:14:02](https://www.youtube.com/watch?v=8kMaTybvDUw&t=842s)).
+- Correction: our Elephant says "roughly 3-20 steps". The talk's core range is 3 to 10, with 20 as an upper example. The requirement is updated; treat more than about 20 steps per agent as a flag.

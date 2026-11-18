@@ -33,3 +33,10 @@ Reviewer inputs: the agent's tool definitions, the dispatcher code or MCP server
 | F01.3 | Does a trace of one run show structured `name + args` records for each call? | trace/log sample with tool name and JSON args | present for every call | present for some, or args truncated | prose only |
 | F01.4 | Is execution done by code the team owns (or reviews), separate from the model call? | dispatcher/handler code, not the prompt, performs the side effect | clear separation | separation exists but handlers embedded in prompts or skills | model output is executed as-is |
 | F01.5 | Are arguments narrow (enums, ids, bounded strings) where the domain allows? | enums or ids in schemas instead of free strings for ids, environments, namespaces | narrow where possible | some narrowing | free strings everywhere |
+
+## From the talk
+
+Source: Dex Horthy's talk, [video](https://www.youtube.com/watch?v=8kMaTybvDUw); timestamps are from its caption track. Paraphrase, not a transcript.
+
+- [00:03:46](https://www.youtube.com/watch?v=8kMaTybvDUw&t=226s) Framed as the most "magical" capability: turning a sentence into JSON. It matters before any loop, switch or tool exists, and it is the one piece you can adopt in an app today without adopting anything else.
+- [00:02:21](https://www.youtube.com/watch?v=8kMaTybvDUw&t=141s) Talk-only framing: the factors are software-engineering practice (compared to what Heroku's 12 factors did for cloud apps), not an AI specialty. Review heuristic: do not require agent-framework vocabulary to credit this factor.

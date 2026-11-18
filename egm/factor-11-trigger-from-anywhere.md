@@ -31,3 +31,10 @@ Reviewer inputs: trigger configuration, channel adapters, auth on each trigger.
 | F11.3 | Does the reply return through the originating channel? | channel stored on run, outbound adapter | yes | different channel | no reply path |
 | F11.4 | Is every trigger authenticated and attributed to an identity in the run record? | auth config, run record has actor | yes | authenticated, not attributed | open trigger |
 | F11.5 | Is channel logic outside the agent's core instructions? | adapter separate from prompts | yes | mixed | embedded |
+
+## From the talk
+
+Source: Dex Horthy's talk, [video](https://www.youtube.com/watch?v=8kMaTybvDUw); timestamps are from its caption track. Paraphrase, not a transcript.
+
+- [00:12:07](https://www.youtube.com/watch?v=8kMaTybvDUw&t=727s) Goes with contacting humans through tools: people do not want seven tabs of chat-style agents, so let them email, Slack, Discord or SMS the agent ([00:12:15](https://www.youtube.com/watch?v=8kMaTybvDUw&t=735s)), and he sees this taking off broadly.
+- Talk-only: no mention of event or webhook triggers. The trigger half of the factor is from the upstream text and our reading.

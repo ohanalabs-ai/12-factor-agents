@@ -33,3 +33,9 @@ Reviewer inputs: traces of 10 runs, the pre-loop code or harness hooks.
 | F13.2 | Do traces show the same lookups repeated as the first tool calls of most runs? | tool-call frequency by position | no repeated opening calls | a few | most runs open identically |
 | F13.3 | Is pre-fetched data bounded and trimmed (factor 3)? | size limits | yes | partly | dumps |
 | F13.4 | Does pre-fetch use least-privilege read-only credentials? | identity used | yes | shared identity | elevated |
+
+## From the talk
+
+Source: Dex Horthy's talk, [video](https://www.youtube.com/watch?v=8kMaTybvDUw); timestamps are from its caption track. Paraphrase, not a transcript.
+
+- Not covered. The talk does not mention pre-fetching context or the appendix. Nothing in this file relies on it.

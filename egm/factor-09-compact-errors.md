@@ -33,3 +33,10 @@ Reviewer inputs: error-handling code, a trace containing a failed tool call.
 | F09.4 | Does hitting the limit escalate (human, different path, stop) visibly? | blocked status, notification | yes | stops silently | loops |
 | F09.5 | For non-idempotent actions, is retry explicitly disabled or guarded? | "no retries" statement, idempotency key | yes | undocumented | blind retry |
 | F09.6 | Are resolved errors removed or summarised from later context? | context builder logic | yes | no, but runs are short | accumulates |
+
+## From the talk
+
+Source: Dex Horthy's talk, [video](https://www.youtube.com/watch?v=8kMaTybvDUw); timestamps are from its caption track. Paraphrase, not a transcript.
+
+- [00:10:33](https://www.youtube.com/watch?v=8kMaTybvDUw&t=633s) He calls this the controversial one and notes it works best combined with the other factors. Putting a failed call's error on the context and retrying can make the model spin out, lose context and get stuck ([00:10:59](https://www.youtube.com/watch?v=8kMaTybvDUw&t=659s)).
+- [00:11:07](https://www.youtube.com/watch?v=8kMaTybvDUw&t=667s) Remedy given: do not blindly append errors; once a valid tool call succeeds, clear the pending errors, summarise them, and never put the whole stack trace on the context. This matches F09.2 and F09.6; the talk gives no numeric retry limit, so F09.3 (counter, escalate at 3) is our addition from upstream, not from the talk.

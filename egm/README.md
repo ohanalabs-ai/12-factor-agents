@@ -4,9 +4,11 @@ This directory is an OhanaLabs addition to the fork. It does **not** change the 
 **evaluator**: for each factor an *Elephant* (first-principles statement) and a *Goldfish* (a fresh-context checklist) in the sense of our
 [EGM process](https://github.com/ohanalabs-ai/agentic-process/blob/main/docs/02-egm-first-principles-process.md).
 
-Source status: the factor text is the repository's `content/factor-*.md` and `appendix-13-pre-fetch.md`. The talk
-(https://www.youtube.com/watch?v=8kMaTybvDUw) has no transcript in the repository and was not watched; nothing here relies on it.
-Factor 12's upstream text is almost empty (two images), so its reading is flagged as interpretation in its file.
+Source status: the factor text is the repository's `content/factor-*.md` and `appendix-13-pre-fetch.md`. Each file also has a
+**From the talk** section, built from the caption track of Dex Horthy's talk (https://www.youtube.com/watch?v=8kMaTybvDUw; the transcript itself is not
+stored here), paraphrased with timestamped deep links. The Elephant and Goldfish text is still interpretation; where the talk sharpened or corrected it
+(factor 10 step range, factor 8 rationale, factor 12) the file says so. The talk does not cover factor 13.
+Factor 12's upstream text is almost empty (two images); the talk gives it one sentence of support, but its reading is still flagged as interpretation.
 
 | # | Factor | File |
 |---|---|---|

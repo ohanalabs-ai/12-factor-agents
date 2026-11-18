@@ -33,3 +33,10 @@ Reviewer inputs: the persistence layer, the run record, a restart test.
 | F05.3 | Can a run be forked or replayed from an earlier point? | fork/replay feature, snapshot restore | yes | restore only to the latest point | no |
 | F05.4 | Can a human read the whole run without special tools? | markdown/UI rendering of the thread | yes | needs developer tooling | no |
 | F05.5 | Is non-context state (credentials, session ids) minimised and kept out of the model's view? | list of side-channel state | minimal and documented | some, undocumented | large hidden state |
+
+## From the talk
+
+Source: Dex Horthy's talk, [video](https://www.youtube.com/watch?v=8kMaTybvDUw); timestamps are from its caption track. Paraphrase, not a transcript.
+
+- [00:07:19](https://www.youtube.com/watch?v=8kMaTybvDUw&t=439s) Names both halves: execution state (current step, next step, retry counts, as in DAG orchestrators) and business state (messages so far, what is shown to the user, what awaits approval). He wants them managed together so you can launch, pause and resume.
+- [00:08:03](https://www.youtube.com/watch?v=8kMaTybvDUw&t=483s) Mechanism shown: serialise the context window straight into a database because you own it; later load it by state id. This is the concrete evidence F05 should look for.

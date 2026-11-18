@@ -36,3 +36,10 @@ Reviewer inputs: the run handler or runtime architecture, a restart/relocation t
 | F12.2 | Can the next step run on a different process or node than the previous one? | stateless workers, relocation test | demonstrated | works via whole-environment snapshot restore | no |
 | F12.3 | Can a stored thread be replayed into the decision function in a test? | replay test or fixture | yes | manual only | no |
 | F12.4 | Is there no sticky routing or in-memory per-run state between events? | deployment config | none | some caching, safe to lose | required |
+
+## From the talk
+
+Source: Dex Horthy's talk, [video](https://www.youtube.com/watch?v=8kMaTybvDUw); timestamps are from its caption track. Paraphrase, not a transcript.
+
+- [00:14:26](https://www.youtube.com/watch?v=8kMaTybvDUw&t=866s) The talk gives the intent in a sentence: a joke that this is a "stateless reducer" (a listener corrects that it is really a transducer, since there are multiple steps), and the point is that agents should be stateless and you own and manage the state however you want ([00:14:34](https://www.youtube.com/watch?v=8kMaTybvDUw&t=874s)). Summary at [00:15:18](https://www.youtube.com/watch?v=8kMaTybvDUw&t=918s): LLMs are stateless functions.
+- Effect on this file: the interpretation above (fold over events, any worker) is supported by the speaker's own description, though the factor still gets little airtime. Keep it out of the headline score; the note about image-only upstream text still holds.

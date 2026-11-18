@@ -33,3 +33,13 @@ Reviewer inputs: the orchestration code, harness settings, a runaway-run test or
 | F08.4 | Are cost or token budgets enforced per run or per day? | budget gate, spend events | enforced | monitored only | none |
 | F08.5 | Is each iteration observable (logs, traces, metrics with run id)? | trace spans per step | yes | coarse (per run) | no |
 | F08.6 | Is there a deterministic kill switch an operator can use mid-run? | cancel API, pause agent | yes | stop the process only | no |
+
+## From the talk
+
+Source: Dex Horthy's talk, [video](https://www.youtube.com/watch?v=8kMaTybvDUw); timestamps are from its caption track. Paraphrase, not a transcript.
+
+- [00:05:06](https://www.youtube.com/watch?v=8kMaTybvDUw&t=306s) Code is already a graph; DAG orchestrators (Airflow, Prefect) give reliability by breaking work into nodes. Agents were supposed to remove the need to draw the DAG: give a goal, the model finds the way, and the loop appends to the context until the model says done ([00:05:53](https://www.youtube.com/watch?v=8kMaTybvDUw&t=353s)).
+- [00:06:25](https://www.youtube.com/watch?v=8kMaTybvDUw&t=385s) Sharpening: he says this naive loop "doesn't really work", mostly because long context windows hurt reliability on longer workflows. His own anatomy is prompt, switch statement over model JSON, context builder, and a loop that decides when to exit ([00:06:56](https://www.youtube.com/watch?v=8kMaTybvDUw&t=416s)).
+- [00:07:14](https://www.youtube.com/watch?v=8kMaTybvDUw&t=434s) What owning it buys: break, switch, summarise and LLM-as-judge in the loop.
+- [00:01:06](https://www.youtube.com/watch?v=8kMaTybvDUw&t=66s) Anecdote supporting our "what would change this": a DevOps build agent took hours of prompt tuning to fix an exact step order, when a bash script would have taken about 90 seconds. Not every problem needs an agent.
+- Correction to our wording: the factor is not only about pausing. The talk justifies it first by context length and reliability, then by pause/resume.

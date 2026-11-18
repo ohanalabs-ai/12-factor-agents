@@ -33,3 +33,11 @@ Reviewer inputs: dispatcher code or gateway policy, tool allow-lists, denied-cal
 | F04.3 | Can an intent be handled differently from "execute now" (defer, approve, batch)? | at least one tool routed to approval or queue | yes | possible but unused | no |
 | F04.4 | Are read and write capabilities separated (different tools, scopes or identities)? | read-only vs write tool sets; separate service accounts | separated | partly (naming only) | mixed |
 | F04.5 | Is every intent and its outcome logged with arguments and a correlation id? | structured log or trace per call | yes | outcome only | no |
+
+## From the talk
+
+Source: Dex Horthy's talk, [video](https://www.youtube.com/watch?v=8kMaTybvDUw); timestamps are from its caption track. Paraphrase, not a transcript.
+
+- [00:04:04](https://www.youtube.com/watch?v=8kMaTybvDUw&t=244s) Talk-only analogy: "tool use is harmful" in the way goto was (quoted as a provocation). He is explicit it is not about denying agents access to the world; the harm is the mental image of an alien entity acting on its environment.
+- [00:04:42](https://www.youtube.com/watch?v=8kMaTybvDUw&t=282s) What actually happens: the model emits JSON, deterministic code does something, maybe the result is fed back. Parsed JSON goes into a loop or a switch statement; "nothing special about tools, it's just JSON and code" ([00:05:00](https://www.youtube.com/watch?v=8kMaTybvDUw&t=300s)).
+- Review heuristic confirmed: the dispatcher is the seam (F04). The talk does not add the gateway-as-seam variation; that remains our interpretation.

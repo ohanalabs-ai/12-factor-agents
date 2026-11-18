@@ -34,3 +34,11 @@ Reviewer inputs: the run API or protocol (A2A, REST, queue), a restart test resu
 | F06.4 | Can a paused run be resumed by an event (webhook, message) after the process restarted? | resume test, persisted wait | demonstrated | works only while the process lives | restart loses the run |
 | F06.5 | Can execution stop between tool selection and tool execution for review? | approval-required flag, pending-call state | yes | per-run only, not per-call | no |
 | F06.6 | Is the longest-living wait bounded and surfaced (timeouts, visible state)? | max-run setting, blocked status | bounded and visible | bounded, silent | unbounded |
+
+## From the talk
+
+Source: Dex Horthy's talk, [video](https://www.youtube.com/watch?v=8kMaTybvDUw); timestamps are from its caption track. Paraphrase, not a transcript.
+
+- [00:07:44](https://www.youtube.com/watch?v=8kMaTybvDUw&t=464s) Put the agent behind a REST API or an MCP server; a normal request loads the context window into the LLM.
+- [00:07:59](https://www.youtube.com/watch?v=8kMaTybvDUw&t=479s) Let the agent call a long-running tool, interrupt the workflow, store the serialised context; when the work finishes it calls back with the state id and result, the state is loaded, the result appended and sent back to the model. "The agent doesn't even know that things happened in the background" ([00:08:20](https://www.youtube.com/watch?v=8kMaTybvDUw&t=500s)).
+- [00:08:23](https://www.youtube.com/watch?v=8kMaTybvDUw&t=503s) "Agents are just software", and this is what unifies factors 5, 6 and 8.
